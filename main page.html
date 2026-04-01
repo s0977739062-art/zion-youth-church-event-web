@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignite Youth | 青年教會活動</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Noto+Sans+TC:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-light: #f8f9fa;
+            --primary-navy: #1a2b48;
+            --accent-gold: #c5a059;
+            --text-main: #333;
+            /* 活動分類顏色 */
+            --cat-spiritual: #c5a059;
+            /* 金色：聚會、音樂 */
+            --cat-growth: #5a80a0;
+            /* 灰藍：讀書、運動 */
+            --cat-kids: #8c8c8c;
+            /* 質感灰：兒童、作業班 */
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+
+        .navbar-brand {
+            color: var(--primary-navy) !important;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* Hero Section (75vh 高度，露出下方內容) */
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(26, 43, 72, 0.5), rgba(26, 43, 72, 0.5)),
+                url('images/封面.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            letter-spacing: 8px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 活動卡片設計 */
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: -10px;
+            /* 維持往上疊加的效果 */
+            position: relative;
+            /* 確保它在最上層 */
+            z-index: 10;
+        }
+
+        .activity-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-gold);
+        }
+
+        .category-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .activity-card h4 {
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .time-info {
+            font-size: 0.85rem;
+            color: #888;
+            margin: 0;
+        }
+
+        /* 分類顏色標註 */
+        .border-spiritual {
+            border-top: 5px solid var(--cat-spiritual);
+        }
+
+        .border-growth {
+            border-top: 5px solid var(--cat-growth);
+        }
+
+        .border-kids {
+            border-top: 5px solid var(--cat-kids);
+        }
+
+
+
+        footer {
+            background: white;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="container" data-aos="fade-up">
+            <h1>青年教會</h1>
+            <p class="lead fw-light mb-4">讀書｜運動｜才藝｜信仰
+一起成長的地方</p>
+        </div>
+    </section>
+
+    <section id="events" class="container py-5">
+        <div class="activity-grid">
+
+            <div class="activity-card border-growth" data-aos="fade-up" data-aos-delay="100">
+                <div>
+
+                    <h4>週二讀書會</h4>
+
+                </div>
+            </div>
+
+            <div class="activity-card border-growth" data-aos="fade-up" data-aos-delay="150">
+                <div>
+                    <h4>週五運動趣</h4>
+
+                </div>
+            </div>
+
+            <div class="activity-card border-kids" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <h4>週六兒童才藝營</h4>
+
+                </div>
+            </div>
+
+            <div class="activity-card border-spiritual" data-aos="fade-up" data-aos-delay="250">
+                <div>
+                    <h4>週日青年聚會</h4>
+
+                </div>
+            </div>
+
+            <div class="activity-card border-spiritual" data-aos="fade-up" data-aos-delay="300">
+                <div>
+                    <h4>週日音樂教室</h4>
+
+                </div>
+            </div>
+
+            <div class="activity-card border-kids" data-aos="fade-up" data-aos-delay="350">
+                <div>
+                    <h4>週日兒童品格營</h4>
+
+                </div>
+            </div>
+
+            <div class="activity-card border-kids special-wide" data-aos="fade-up" data-aos-delay="400">
+                <div>
+                    <h4>寒、暑假作業 KO 班</h4>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <h5 class="fw-bold">IGNITE YOUTH</h5>
+            <p class="text-muted small">&copy; 2026 青年教會活動版權所有</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+
+</html>

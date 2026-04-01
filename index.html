@@ -89,30 +89,35 @@
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* 活動卡片網格 */
-        .activity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-            position: relative;
-            z-index: 10;
-        }
+       .activity-grid {
+    display: grid;
+    /* 1. 將最小寬度降到 250px，這樣在一般螢幕就能排下 4 張 */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* 縮小間距，讓構圖更緊湊 */
+    
+    /* 2. 限制總寬度在 1200px 左右，這是最舒服的視覺範圍 */
+    max-width: 1200px; 
+    margin: 40px auto 0 auto;
+}
 
-        .activity-card {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 16px;
-            padding: 40px 30px;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+.activity-card {
+    /* 3. 縮小上下間距 (Padding)，讓卡片變矮 */
+    padding: 50px 20px; 
+    
+    /* 保持原本的圓角與陰影，維持高級感 */
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+
+
 
         .activity-card:hover {
             transform: translateY(-10px);
@@ -224,31 +229,44 @@
         </div>
     </section>
 
-    <section id="events" class="container py-5">
-        <div class="activity-grid">
-            <div class="activity-card border-growth" data-aos="fade-up" data-aos-delay="100">
-                <h4>週二讀書會</h4>
-            </div>
-            <div class="activity-card border-growth" data-aos="fade-up" data-aos-delay="150">
-                <h4>週五運動趣</h4>
-            </div>
-            <div class="activity-card border-kids" data-aos="fade-up" data-aos-delay="200">
-                <h4>週六兒童才藝營</h4>
-            </div>
-            <div class="activity-card border-spiritual" data-aos="fade-up" data-aos-delay="250">
-                <h4>週日青年聚會</h4>
-            </div>
-            <div class="activity-card border-spiritual" data-aos="fade-up" data-aos-delay="300">
-                <h4>週日音樂教室</h4>
-            </div>
-            <div class="activity-card border-kids" data-aos="fade-up" data-aos-delay="350">
-                <h4>週日兒童品格營</h4>
-            </div>
-            <div class="activity-card border-kids" data-aos="fade-up" data-aos-delay="400">
-                <h4>寒、暑假作業 KO 班</h4>
-            </div>
-        </div>
-    </section>
+    <div class="activity-grid">
+    
+    <div class="activity-card border-growth position-relative" data-aos="fade-up">
+        <h4 class="m-0">週二讀書會</h4>
+        <a href="reading-club.html" class="stretched-link"></a>
+    </div>
+
+    <div class="activity-card border-growth position-relative" data-aos="fade-up" data-aos-delay="100">
+        <h4 class="m-0">週五運動趣</h4>
+        <a href="sports.html" class="stretched-link"></a>
+    </div>
+
+    <div class="activity-card border-kids position-relative" data-aos="fade-up" data-aos-delay="150">
+        <h4 class="m-0">週六兒童才藝營</h4>
+        <a href="kids-art.html" class="stretched-link"></a>
+    </div>
+
+    <div class="activity-card border-spiritual position-relative" data-aos="fade-up" data-aos-delay="200">
+        <h4 class="m-0">週日青年聚會</h4>
+        <a href="youth-worship.html" class="stretched-link"></a>
+    </div>
+
+    <div class="activity-card border-spiritual position-relative" data-aos="fade-up" data-aos-delay="250">
+        <h4 class="m-0">週日音樂教室</h4>
+        <a href="music-class.html" class="stretched-link"></a>
+    </div>
+
+    <div class="activity-card border-kids position-relative" data-aos="fade-up" data-aos-delay="300">
+        <h4 class="m-0">週日兒童品格營</h4>
+        <a href="kids-character.html" class="stretched-link"></a>
+    </div>
+
+    <div class="activity-card border-kids position-relative" data-aos="fade-up" data-aos-delay="350">
+        <h4 class="m-0">寒、暑假作業 KO 班</h4>
+        <a href="study-ko.html" class="stretched-link"></a>
+    </div>
+
+</div>
 
     <section id="contact" class="quick-contact-section py-5">
         <div class="container">
@@ -276,7 +294,7 @@
                     </a>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <a href="tel:073155571" class="contact-box border-dark">
+                    <a href="tel:3155571" class="contact-box border-dark">
                         <div class="contact-icon-circle icon-dark">
                             <i class="bi bi-telephone-fill"></i>
                         </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ignite Youth | 青年教會活動</title>
+    <title>Zion Youth Church | 青年教會活動</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,6 +12,24 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
+        /* 下拉選單高級感微調 */
+.dropdown-menu {
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: var(--accent-gold); /* 滑過時變金色 */
+}
         :root {
             --bg-light: #f8f9fa;
             --primary-navy: #1a2b48;
@@ -173,10 +191,27 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">關於我們</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#events">熱門活動</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">聯絡社群</a></li>
-                </ul>
+    <li class="nav-item">
+        <a class="nav-link" href="#">高雄錫安堂</a>
+    </li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            精選活動
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end border-0 shadow" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#events">週二讀書會</a></li>
+            <li><a class="dropdown-item" href="#events">週五運動趣</a></li>
+            <li><a class="dropdown-item" href="#events">週六兒童才藝營</a></li>
+            <li><hr class="dropdown-divider"></li> <li><a class="dropdown-item" href="#events">週日青年聚會</a></li>
+            <li><a class="dropdown-item" href="#events">週日音樂教室</a></li>
+            <li><a class="dropdown-item" href="#events">週日兒童品格營</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#events">寒暑假作業 KO 班</a></li>
+        </ul>
+    </li>
+    
+</ul>
             </div>
         </div>
     </nav>
@@ -219,16 +254,20 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up">
-                    <a href="#" class="contact-box border-orange">
+
+                    <a href="https://line.me/R/ti/p/@356lmxoo?ts=03282137&oat_content=url" class="contact-box border-orange">
                         <div class="contact-icon-circle icon-orange">
                             <i class="bi bi-question-lg"></i>
                         </div>
                         <h4>我要問問題</h4>
                         <p>對活動有疑問？點擊立即諮詢</p>
+                       
+                        
                     </a>
+                    
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <a href="#" target="_blank" class="contact-box border-blue">
+                    <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="contact-box border-blue">
                         <div class="contact-icon-circle icon-blue">
                             <i class="bi bi-geo-alt-fill"></i>
                         </div>
@@ -237,7 +276,7 @@
                     </a>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <a href="tel:070000000" class="contact-box border-dark">
+                    <a href="tel:073155571" class="contact-box border-dark">
                         <div class="contact-icon-circle icon-dark">
                             <i class="bi bi-telephone-fill"></i>
                         </div>
@@ -251,7 +290,8 @@
 
     <footer class="text-center">
         <div class="container">
-            <h5 class="fw-bold">IGNITE YOUTH</h5>
+            <h5 class="fw-bold">這裡是我們的家丨信仰讓我們發光
+            </h5>
             <p class="text-muted small">© 2026 青年教會活動版權所有</p>
         </div>
     </footer>

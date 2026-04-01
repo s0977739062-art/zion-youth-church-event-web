@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ignite Youth | 青年教會活動</title>
-
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Noto+Sans+TC:wght@300;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -18,13 +17,9 @@
             --primary-navy: #1a2b48;
             --accent-gold: #c5a059;
             --text-main: #333;
-            /* 活動分類顏色 */
             --cat-spiritual: #c5a059;
-            /* 金色：聚會、音樂 */
             --cat-growth: #5a80a0;
-            /* 灰藍：讀書、運動 */
             --cat-kids: #8c8c8c;
-            /* 質感灰：兒童、作業班 */
         }
 
         body {
@@ -32,8 +27,16 @@
             background-color: var(--bg-light);
             color: var(--text-main);
             overflow-x: hidden;
+            padding-top: 70px; /* 防止被固定導覽列遮住 */
         }
 
+        /* 導覽列：毛玻璃高級感 */
+        .navbar {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
         .navbar-brand {
             color: var(--primary-navy) !important;
@@ -41,7 +44,12 @@
             font-weight: 700;
         }
 
-        /* Hero Section (75vh 高度，露出下方內容) */
+        .nav-link {
+            color: #555 !important;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
         .hero {
             height: 50vh;
             background: linear-gradient(rgba(26, 43, 72, 0.5), rgba(26, 43, 72, 0.5)),
@@ -51,7 +59,8 @@
             justify-content: center;
             text-align: center;
             color: white;
-            clip-path: ellipse(150% 100% at 50% 0%);
+            /* 移除 clip-path 避免切到下方內容 */
+            border-bottom: 4px solid var(--accent-gold);
         }
 
         .hero h1 {
@@ -62,15 +71,13 @@
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* 活動卡片設計 */
+        /* 活動卡片網格 */
         .activity-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
-            margin-top: -10px;
-            /* 維持往上疊加的效果 */
+            margin-top: 40px;
             position: relative;
-            /* 確保它在最上層 */
             z-index: 10;
         }
 
@@ -78,13 +85,14 @@
             background: #fff;
             border: 1px solid #eee;
             border-radius: 16px;
-            padding: 30px;
+            padding: 40px 30px;
             transition: all 0.4s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
 
@@ -94,45 +102,62 @@
             border-color: var(--accent-gold);
         }
 
-        .category-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .activity-card h4 {
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .time-info {
-            font-size: 0.85rem;
-            color: #888;
-            margin: 0;
-        }
+        .activity-card h4 { font-weight: 700; margin-bottom: 8px; }
 
         /* 分類顏色標註 */
-        .border-spiritual {
-            border-top: 5px solid var(--cat-spiritual);
+        .border-spiritual { border-top: 5px solid var(--cat-spiritual); }
+        .border-growth { border-top: 5px solid var(--cat-growth); }
+        .border-kids { border-top: 5px solid var(--cat-kids); }
+
+        /* 快速聯絡區塊樣式 */
+        .quick-contact-section {
+            background-color: #ffffff;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 60px;
         }
 
-        .border-growth {
-            border-top: 5px solid var(--cat-growth);
+        .contact-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-decoration: none !important;
+            background: #fff;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 1px solid #eee;
+            height: 100%;
         }
 
-        .border-kids {
-            border-top: 5px solid var(--cat-kids);
+        .contact-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
+        .border-orange:hover { border-color: #d35400; }
+        .border-blue:hover   { border-color: #2980b9; }
+        .border-dark:hover   { border-color: #333333; }
 
+        .contact-icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .icon-orange { background: #fff5eb; color: #d35400; }
+        .icon-blue   { background: #ebf5ff; color: #2980b9; }
+        .icon-dark   { background: #f5f5f5; color: #333333; }
 
         footer {
             background: white;
             padding: 40px 0;
-            margin-top: 80px;
             border-top: 1px solid #eee;
         }
     </style>
@@ -140,75 +165,93 @@
 
 <body>
 
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Zion Youth Church</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">關於我們</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#events">熱門活動</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">聯絡社群</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="container" data-aos="fade-up">
             <h1>青年教會</h1>
-            <p class="lead fw-light mb-4">讀書｜運動｜才藝｜信仰
-一起成長的地方</p>
+            <p class="lead fw-light mb-4">讀書｜運動｜才藝｜信仰，一起成長的地方</p>
         </div>
     </section>
 
     <section id="events" class="container py-5">
         <div class="activity-grid">
-
             <div class="activity-card border-growth" data-aos="fade-up" data-aos-delay="100">
-                <div>
-
-                    <h4>週二讀書會</h4>
-
-                </div>
+                <h4>週二讀書會</h4>
             </div>
-
             <div class="activity-card border-growth" data-aos="fade-up" data-aos-delay="150">
-                <div>
-                    <h4>週五運動趣</h4>
-
-                </div>
+                <h4>週五運動趣</h4>
             </div>
-
             <div class="activity-card border-kids" data-aos="fade-up" data-aos-delay="200">
-                <div>
-                    <h4>週六兒童才藝營</h4>
-
-                </div>
+                <h4>週六兒童才藝營</h4>
             </div>
-
             <div class="activity-card border-spiritual" data-aos="fade-up" data-aos-delay="250">
-                <div>
-                    <h4>週日青年聚會</h4>
-
-                </div>
+                <h4>週日青年聚會</h4>
             </div>
-
             <div class="activity-card border-spiritual" data-aos="fade-up" data-aos-delay="300">
-                <div>
-                    <h4>週日音樂教室</h4>
-
-                </div>
+                <h4>週日音樂教室</h4>
             </div>
-
             <div class="activity-card border-kids" data-aos="fade-up" data-aos-delay="350">
-                <div>
-                    <h4>週日兒童品格營</h4>
+                <h4>週日兒童品格營</h4>
+            </div>
+            <div class="activity-card border-kids" data-aos="fade-up" data-aos-delay="400">
+                <h4>寒、暑假作業 KO 班</h4>
+            </div>
+        </div>
+    </section>
 
+    <section id="contact" class="quick-contact-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <a href="#" class="contact-box border-orange">
+                        <div class="contact-icon-circle icon-orange">
+                            <i class="bi bi-question-lg"></i>
+                        </div>
+                        <h4>我要問問題</h4>
+                        <p>對活動有疑問？點擊立即諮詢</p>
+                    </a>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <a href="#" target="_blank" class="contact-box border-blue">
+                        <div class="contact-icon-circle icon-blue">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h4>我要導航</h4>
+                        <p>一鍵開啟 Google 地圖帶你來</p>
+                    </a>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="tel:070000000" class="contact-box border-dark">
+                        <div class="contact-icon-circle icon-dark">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h4>我要打電話</h4>
+                        <p>緊急事項，直接撥打專線</p>
+                    </a>
                 </div>
             </div>
-
-            <div class="activity-card border-kids special-wide" data-aos="fade-up" data-aos-delay="400">
-                <div>
-                    <h4>寒、暑假作業 KO 班</h4>
-
-                </div>
-            </div>
-
         </div>
     </section>
 
     <footer class="text-center">
         <div class="container">
             <h5 class="fw-bold">IGNITE YOUTH</h5>
-            <p class="text-muted small">&copy; 2026 青年教會活動版權所有</p>
+            <p class="text-muted small">© 2026 青年教會活動版權所有</p>
         </div>
     </footer>
 
@@ -218,5 +261,4 @@
         AOS.init({ duration: 1000, once: true });
     </script>
 </body>
-
 </html>

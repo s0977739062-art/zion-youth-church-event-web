@@ -89,32 +89,53 @@
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-       .activity-grid {
+      /* --- 通用與電腦版樣式 --- */
+.activity-grid {
     display: grid;
-    /* 1. 將最小寬度降到 250px，這樣在一般螢幕就能排下 4 張 */
+    /* 電腦版維持 250px 起跳，能排 4 張就排 4 張 */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px; /* 縮小間距，讓構圖更緊湊 */
-    
-    /* 2. 限制總寬度在 1200px 左右，這是最舒服的視覺範圍 */
-    max-width: 1200px; 
-    margin: 40px auto 0 auto;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px; /* 關鍵：確保手機版左右不會貼邊 */
 }
 
 .activity-card {
-    /* 3. 縮小上下間距 (Padding)，讓卡片變矮 */
-    padding: 50px 20px; 
-    
-    /* 保持原本的圓角與陰影，維持高級感 */
     background: #ffffff;
     border: 1px solid #f0f0f0;
     border-radius: 15px;
+    padding: 50px 20px; /* 電腦版高度 */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     transition: all 0.4s ease;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* 稍微加深一點點陰影更有立體感 */
 }
+
+/* --- 手機專用樣式 (螢幕小於 576px 時) --- */
+@media (max-width: 576px) {
+    .activity-grid {
+        /* 魔法就在這：手機版強制變成 2 欄 (1fr 1fr) */
+        grid-template-columns: 1fr 1fr; 
+        gap: 12px;      /* 手機版間距小一點才精緻 */
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    .activity-card {
+        padding: 30px 10px; /* 手機版不需要那麼高，縮小上下間距 */
+        border-radius: 12px;
+    }
+
+    .activity-card h4 {
+        font-size: 0.95rem; /* 字體縮小一點，才不會折行變得很醜 */
+        font-weight: 600;
+        line-height: 1.4;
+    }
+}
+
 
 
 

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>週五運動趣</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Noto+Sans+TC:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-light: #f8f9fa;
+            --primary-navy: #1a2b48;
+            --accent-gold: #c5a059;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #fff;
+            color: #333;
+            padding-top: 70px;
+        }
+
+        /* 導覽列 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+        }
+
+        /* 活動首圖 */
+        .activity-hero {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('images/05076E75-39CB-4F51-9888-3BB72C475C0B.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        /* 兩張圖並排的容器 */
+        .dual-image-container {
+            height: 300px;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .dual-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        /* 時間軸樣式 */
+        .timeline-container {
+            position: relative;
+            padding-left: 100px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 120px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e9ecef;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: -100px;
+            top: 15px;
+            width: 80px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            font-size: 1.2rem;
+            text-align: right;
+        }
+
+        .timeline-content {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid #f0f0f0;
+            margin-left: 50px;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card-hover:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(26, 43, 72, 0.08);
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .timeline-item.holiday .timeline-content {
+            background: #f8f9fa;
+            color: #adb5bd;
+            border-style: dashed;
+        }
+
+        /* 快速聯絡區塊 */
+        .contact-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            text-decoration: none !important;
+            background: #fff;
+            border-radius: 12px;
+            transition: 0.4s;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .contact-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .icon-orange {
+            background: #fff5eb;
+            color: #d35400;
+        }
+
+        .icon-blue {
+            background: #ebf5ff;
+            color: #2980b9;
+        }
+
+        .icon-dark {
+            background: #f5f5f5;
+            color: #333333;
+        }
+
+        /* 大氣資訊列 */
+        .info-bar-large {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(26, 43, 72, 0.08);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            border: 1px solid #f0f0f0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 20px;
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+        }
+
+        @media (max-width: 991px) {
+            .timeline-container {
+                padding-left: 0;
+            }
+
+            .timeline-container::before {
+                left: 15px;
+            }
+
+            .timeline-date {
+                position: relative;
+                left: 40px;
+                text-align: left;
+                margin-bottom: 20px;
+            }
+
+            .timeline-content {
+                margin-left: 40px;
+            }
+
+            .info-bar-large {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html" style="color: var(--primary-navy);">Zion Youth Church</a>
+            <a href="index.html" class="back-btn"><i class="bi bi-arrow-left me-2"></i>返回主頁</a>
+        </div>
+    </nav>
+
+    <header class="activity-hero" data-aos="fade">
+        <div class="container">
+            <h1 class="display-4 fw-bold">週五運動趣</h1>
+            <p class="lead">動一動，身體壯壯</p>
+        </div>
+    </header>
+<div class="info-bar-large mt-5">
+                        <div class="info-item"><i class="bi bi-calendar3"></i>
+                            <div><span><br>時間<br></span><strong>每週五 7:00-9:00</strong></div>
+                        </div>
+                        <div class="info-item"><i class="bi bi-geo-alt"></i>
+                            <div><span><br>地點<br></span>
+                                <strong>每週不同</strong></div>
+                        </div>
+                        <div class="info-item"><i class="bi bi-people"></i>
+                            <div>
+                                        <span><br>對象<br></span>
+                                        <strong>國小 ～ 社青</strong>
+                                    </div>
+                        </div>
+                    </div>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="timeline-container">
+                        <div class="timeline-item holiday" data-aos="fade-up">
+                            <div class="timeline-date">4/03</div>
+                            <div class="timeline-content">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-slash-circle me-3 fs-4"></i>
+                                    <div>
+                                        <h5 class="fw-bold mb-1">國定假日暫停一次</h5>
+                                        <p class="mb-0 small text-muted">好好休息，下週見！</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-date">4/10</div>
+                            <div class="timeline-content card-hover">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h5 class="fw-bold mb-2"><i class="bi bi-bicycle me-2 text-primary"></i>騎腳踏車
+                                        </h5>
+                                        <p class="mb-1">晚上 7:00 ～ 10:00</p>
+                                        <p class="mb-0">教會一樓集合</p>
+                                    </div>
+                                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                        <a href="https://www.google.com/maps/place/%E9%AB%98%E9%9B%84%E9%8C%AB%E5%AE%89%E5%A0%82%E6%95%99%E6%9C%83/@22.6414483,120.2995288,17z/data=!3m1!4b1!4m6!3m5!1s0x346e04f41482be37:0x905b2284aa1c66d9!8m2!3d22.6414434!4d120.3021037!16s%2Fg%2F11bc745n6j?entry=tts&g_ep=EgoyMDI2MDMyNC4wIPu8ASoASAFQAw%3D%3D&skid=c985a6f3-cf3c-4351-bca9-d8d0573326b4"
+                                            class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-date">4/17</div>
+                            <div class="timeline-content card-hover">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h5 class="fw-bold mb-2"><i
+                                                class="bi bi-lightning-charge me-2 text-warning"></i>羽毛球</h5>
+                                        <p class="mb-1">晚上 6:00 ～ 8:00</p>
+                                        <p class="mb-0">內惟國小羽球場</p>
+                                    </div>
+                                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                        <a href="https://maps.app.goo.gl/iifUatNd4EBW1nrF9"
+                                            class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-date">4/24</div>
+                            <div class="timeline-content card-hover">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h5 class="fw-bold mb-2"><i class="bi bi-dribbble me-2 text-danger"></i>籃球</h5>
+                                        <p class="mb-1">晚上 7:00 ～ 9:00</p>
+                                        <p class="mb-0">三民公園籃球場</p>
+                                    </div>
+                                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                        <a href="https://maps.app.goo.gl/mtcW3xTxF2621QJ99"
+                                            class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-12">
+                    <h2 class="fw-bold mb-4">不論新手還是高手都歡迎！一起運動、交朋友！</h2>
+
+                    <div class="row g-3 mt-4">
+                        <div class="col-md-4">
+                            <div class="row g-3">
+                                <div class="col-12" data-aos="zoom-in">
+                                    <div class="gallery-item"><img src="images/187C8DF4-46A3-402D-B296-F9FB5D2CCFE4.jpg"
+                                            class="img-fluid"></div>
+                                </div>
+                                <div class="col-12" data-aos="zoom-in">
+                                    <div class="gallery-item"><img src="images/FCA11A74-18F7-49FC-B908-ADAAC546720D.jpg"
+                                            class="img-fluid"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="gallery-item" data-aos="zoom-in"><img
+                                    src="images/LINE_ALBUM_20260209_260328_1.jpg" class="img-fluid"></div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-normal my-5">有老師帶領教學，也有高手一起切磋，輕鬆上手沒壓力</h4>
+
+                    <div class="row g-3 mb-5">
+    <div class="col-md-12">
+        <div class="ratio ratio-16x9">
+            <video controls class="rounded shadow" style="object-fit: contain; background: #000;">
+                <source src="images/IMG_9211.MOV" type="video/mp4">
+                您的瀏覽器不支援影片播放。
+            </video>
+        </div>
+    </div>
+</div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="quick-contact-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+
+                    <a href="https://line.me/R/ti/p/@356lmxoo?ts=03282137&oat_content=url" class="contact-box border-orange">
+                        <div class="contact-icon-circle icon-orange">
+                            <i class="bi bi-question-lg"></i>
+                        </div>
+                        <h4>我要問問題</h4>
+                        <p>對活動有疑問？點擊立即諮詢</p>
+                       
+                        
+                    </a>
+                    
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="contact-box border-blue">
+                        <div class="contact-icon-circle icon-blue">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h4>我要導航</h4>
+                        <p>一鍵開啟 Google 地圖帶你來</p>
+                    </a>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="tel:3155571" class="contact-box border-dark">
+                        <div class="contact-icon-circle icon-dark">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h4>我要打電話</h4>
+                        <p>緊急事項，直接撥打專線</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-white border-top text-center">
+        <p class="text-muted small">這裡是我們的家丨信仰讓我們發光</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+
+</html>

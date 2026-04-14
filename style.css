@@ -1,0 +1,162 @@
+:root {
+    --bg-light: #f8f9fa;
+    --primary-navy: #1a2b48;
+    --accent-gold: #c5a059;
+    --text-main: #333;
+    --cat-spiritual: #c5a059;
+    --cat-growth: #5a80a0;
+    --cat-kids: #8c8c8c;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    overflow-x: hidden;
+    padding-top: 70px;
+}
+
+/* --- 導覽列與 Logo (修正重複衝突) --- */
+.navbar {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    font-family: 'Cinzel', serif !important;
+    color: var(--primary-navy) !important;
+    letter-spacing: 1px !important; /* 增加字距提升高級感 */
+    text-transform: uppercase;
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    transition: 0.3s;
+}
+
+.navbar-brand:hover {
+    color: var(--accent-gold) !important;
+    opacity: 0.8;
+}
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 500;
+}
+
+/* 下拉選單 */
+.dropdown-menu { border-radius: 12px; padding: 10px; margin-top: 10px; }
+.dropdown-item { padding: 10px 20px; border-radius: 8px; transition: 0.3s; font-size: 0.9rem; }
+.dropdown-item:hover { background-color: #f8f9fa; color: var(--accent-gold); }
+
+/* --- 大氣資訊列 (修正沒換行與沒邊框的問題) --- */
+.info-bar-large {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-item i { font-size: 1.8rem; color: var(--accent-gold); }
+
+/* 修正：讓時間/地點標籤強制換行 */
+.info-item span {
+    display: block; 
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--primary-navy);
+}
+
+/* 修正：增加垂直分隔線 */
+.border-start-custom {
+    border-left: 1px solid #eee;
+    padding-left: 30px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 50vh;
+    background: linear-gradient(rgba(26, 43, 72, 0.5), rgba(26, 43, 72, 0.5)),
+                url('images/封面.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-bottom: 4px solid var(--accent-gold);
+}
+
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    letter-spacing: 8px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 活動卡片網格 --- */
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.activity-card {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+.activity-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-gold);
+}
+
+/* 手機版 2 欄設定 */
+@media (max-width: 576px) {
+    .activity-grid { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 15px; }
+    .activity-card { padding: 30px 10px; }
+    .activity-card h4 { font-size: 0.95rem; }
+    .border-start-custom { border-left: none; padding-left: 0; border-top: 1px solid #eee; padding-top: 10px; }
+    .info-bar-large { flex-direction: column; gap: 20px; }
+}
+
+/* 聯絡區塊 */
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background: #fff;
+    border-radius: 12px;
+    transition: 0.4s;
+    border: 1px solid #eee;
+    text-decoration: none !important;
+}
+
+
+.contact-box:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }

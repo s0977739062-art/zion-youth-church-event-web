@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>週二讀書會</title>
-    
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,65 +16,86 @@
 
     <style>
         /* 快速聯絡區塊樣式 */
-.quick-contact-section {
-    background-color: #ffffff;
-    border-top: 1px solid #f0f0f0;
-}
+        .quick-contact-section {
+            background-color: #ffffff;
+            border-top: 1px solid #f0f0f0;
+        }
 
-.contact-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    text-decoration: none !important;
-    background: #fff;
-    border-radius: 12px;
-    transition: all 0.4s ease;
-    text-align: center;
-    border: 1px solid #eee; /* 預設淡色邊框 */
-}
+        .contact-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-decoration: none !important;
+            background: #fff;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 1px solid #eee;
+            /* 預設淡色邊框 */
+        }
 
-/* 懸浮時的動態效果 */
-.contact-box:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-}
+        /* 懸浮時的動態效果 */
+        .contact-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
 
-/* 各自的主題色設定 */
-.border-orange:hover { border-color: #d35400; }
-.border-blue:hover   { border-color: #2980b9; }
-.border-dark:hover   { border-color: #333333; }
+        /* 各自的主題色設定 */
+        .border-orange:hover {
+            border-color: #d35400;
+        }
 
-/* 圓圈圖示樣式 */
-.contact-icon-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
+        .border-blue:hover {
+            border-color: #2980b9;
+        }
 
-.icon-orange { background: #fff5eb; color: #d35400; }
-.icon-blue   { background: #ebf5ff; color: #2980b9; }
-.icon-dark   { background: #f5f5f5; color: #333333; }
+        .border-dark:hover {
+            border-color: #333333;
+        }
 
-.contact-box h4 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #222;
-    margin-bottom: 10px;
-}
+        /* 圓圈圖示樣式 */
+        .contact-icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
 
-.contact-box p {
-    font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 0;
-}
+        .icon-orange {
+            background: #fff5eb;
+            color: #d35400;
+        }
+
+        .icon-blue {
+            background: #ebf5ff;
+            color: #2980b9;
+        }
+
+        .icon-dark {
+            background: #f5f5f5;
+            color: #333333;
+        }
+
+        .contact-box h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0;
+        }
+
         /* 大氣橫式資訊列專屬樣式 */
         .info-bar-large {
             background: #ffffff;
@@ -322,7 +343,7 @@
                             </div>
                         </div>
                     </div>
-                      <h2 class="fw-bold mt-5 mb-3">好吃晚餐，補充好體力</h2>
+                    <h2 class="fw-bold mt-5 mb-3">好吃晚餐，補充好體力</h2>
                     <div class="container my-5">
                         <div class="row g-3">
                             <div class="col-md-6" data-aos="fade-up">
@@ -379,7 +400,14 @@
                                     <i class="bi bi-geo-alt"></i>
                                     <div>
                                         <span>地點</span>
-                                        <strong> 教會五樓</strong>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <strong>教會五樓</strong>
+                                            <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank"
+                                                class="btn btn-outline-success btn-sm rounded-pill py-0 px-2"
+                                                style="font-size: 0.7rem; height: 20px; line-height: 18px;">
+                                                點我導航
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="info-item border-start-custom">
@@ -409,14 +437,15 @@
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up">
 
-                    <a href="https://line.me/R/ti/p/@356lmxoo?ts=03282137&oat_content=url" class="contact-box border-orange">
+                    <a href="https://line.me/R/ti/p/@356lmxoo?ts=03282137&oat_content=url"
+                        class="contact-box border-orange">
                         <div class="contact-icon-circle icon-orange">
                             <i class="bi bi-question-lg"></i>
                         </div>
                         <h4>我要問問題</h4>
                         <p>對活動有疑問？點擊立即諮詢</p>
-                        </a>
-                      </div>
+                    </a>
+                </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="contact-box border-blue">
                         <div class="contact-icon-circle icon-blue">
@@ -439,15 +468,15 @@
         </div>
     </section>
 
- <footer class="py-5 bg-white border-top text-center">
+    <footer class="py-5 bg-white border-top text-center">
         <p class="text-muted small">這裡是我們的家丨信仰讓我們發光</p>
     </footer>
 
 
-    
+
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <script>AOS.init({ duration: 1000 });</script>
 </body>
 

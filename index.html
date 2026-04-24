@@ -222,6 +222,71 @@
             padding: 40px 0;
             border-top: 1px solid #eee;
         }
+        /* 移除所有連結的預設藍色字與底線 */
+.contact-box-horizontal {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    text-decoration: none !important; /* 關鍵：強制去掉底線 */
+    color: inherit;
+    transition: all 0.4s ease;
+    flex: 1; /* 讓三個按鈕平分高度 */
+}
+
+/* 滑鼠移上去的效果：往右滑動並變色 */
+.contact-box-horizontal:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background-color: #fafafa;
+}
+
+.contact-box-horizontal h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+}
+
+.contact-box-horizontal p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* 圓形 Icon 設定 */
+.contact-icon-circle {
+    width: 55px;
+    height: 55px;
+    min-width: 55px; /* 防止被擠壓 */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+/* QR Code 卡片 */
+.qr-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #f0f0f0;
+}
+
+.qr-wrapper {
+    border: 2px dashed var(--accent-gold); /* 金色虛線框 */
+    border-radius: 12px;
+}
+
+/* 手機版適配：在小螢幕自動變回上下堆疊 */
+@media (max-width: 991px) {
+    .contact-box-horizontal {
+        padding: 20px;
+    }
+    .contact-box-horizontal:hover {
+        transform: translateY(-5px); /* 手機版改為往上跳 */
+    }
+}
     </style>
 </head>
 
@@ -302,43 +367,62 @@
 
 </div>
 
-    <section id="contact" class="quick-contact-section py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up">
-
-                    <a href="https://line.me/R/ti/p/@356lmxoo?ts=03282137&oat_content=url" class="contact-box border-orange">
+   <section id="contact" class="quick-contact-section py-5">
+    <div class="container">
+        <div class="row g-4 align-items-stretch">
+            
+            <div class="col-lg-7">
+                <div class="d-flex flex-column gap-3 h-100">
+                    
+                    <a href="https://line.me/R/ti/p/@356lmxoo" 
+                       class="contact-box-horizontal border-orange" data-aos="fade-right">
                         <div class="contact-icon-circle icon-orange">
                             <i class="bi bi-question-lg"></i>
                         </div>
-                        <h4>我要問問題</h4>
-                        <p>對活動有疑問？點擊立即諮詢</p>
-                       
-                        
+                        <div class="ms-4 text-start">
+                            <h4 class="mb-1">我要問問題</h4>
+                            <p class="mb-0">對活動有疑問？點擊立即諮詢</p>
+                        </div>
                     </a>
-                    
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="contact-box border-blue">
+
+                    <a href="https://maps.google.com" target="_blank" 
+                       class="contact-box-horizontal border-blue" data-aos="fade-right" data-aos-delay="100">
                         <div class="contact-icon-circle icon-blue">
                             <i class="bi bi-geo-alt-fill"></i>
                         </div>
-                        <h4>我要導航</h4>
-                        <p>活動地點地圖</p>
+                        <div class="ms-4 text-start">
+                            <h4 class="mb-1">我要導航</h4>
+                            <p class="mb-0">活動地點地圖導航</p>
+                        </div>
                     </a>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <a href="tel:3155571" class="contact-box border-dark">
+
+                    <a href="tel:3155571" 
+                       class="contact-box-horizontal border-dark" data-aos="fade-right" data-aos-delay="200">
                         <div class="contact-icon-circle icon-dark">
                             <i class="bi bi-telephone-fill"></i>
                         </div>
-                        <h4>我要打電話</h4>
-                        <p>緊急事項，直接撥打專線</p>
+                        <div class="ms-4 text-start">
+                            <h4 class="mb-1">我要打電話</h4>
+                            <p class="mb-0">緊急事項，直接撥打專線</p>
+                        </div>
                     </a>
+                    
                 </div>
             </div>
+
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="qr-card h-100 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
+                    <h5 class="fw-bold mb-4" style="color: var(--primary-navy);">給好朋朋掃網站</h5>
+                    <div class="qr-wrapper p-3 bg-white mb-4">
+                        <img src="images/下載.png" alt="QR Code" class="img-fluid" style="width: 200px;">
+                    </div>
+                    <p class="text-muted small">掃描上方 QR Code</p>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="text-center">
         <div class="container">

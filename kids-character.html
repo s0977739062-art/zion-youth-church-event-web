@@ -243,6 +243,24 @@
             background: var(--accent-gold);
             color: white;
         }
+       /* 專門針對手機版導覽列字體縮小 */
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 0.95rem !important; /* 縮小字體 */
+        letter-spacing: 0px !important;  /* 消除字距，節省橫向空間 */
+        font-weight: 700 !important;
+        max-width: 150px;              /* 限制最大寬度，避免擠到按鈕 */
+        white-space: nowrap;           /* 強制不換行 */
+        overflow: hidden;
+        text-overflow: ellipsis;       /* 如果字太長會出現... (預防萬一) */
+    }
+
+    /* 調整右側按鈕組，讓它們跟 Logo 更有距離 */
+    .ms-auto.d-flex {
+        gap: 5px !important;
+    }
+}
+
     </style>
 </head>
 

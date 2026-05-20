@@ -110,10 +110,13 @@
       /* --- 通用與電腦版樣式 --- */
 .activity-grid {
     display: grid;
-    /* 電腦版維持 250px 起跳，能排 4 張就排 4 張 */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* 1. 將最小寬度從 250px 縮小到 170px，讓它有空間塞 5 張 */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    max-width: 1200px;
+    
+    /* 2. 將最大總寬度放寬到 1200px（或 1140px），這樣大螢幕就能完美排滿 5 張 */
+    max-width: 1200px; 
+    
     margin: 40px auto;
     padding: 0 20px; /* 關鍵：確保手機版左右不會貼邊 */
 }

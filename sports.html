@@ -102,12 +102,6 @@
             border-left: 5px solid var(--accent-gold);
         }
 
-        .timeline-item.holiday .timeline-content {
-            background: #f8f9fa;
-            color: #6c757d;
-            border-style: dashed;
-        }
-
         /* 大氣資訊列 */
         .info-bar-large {
             background: #fff;
@@ -209,38 +203,10 @@
 
 <body>
 
-    <!-- 🌟 自動跳出的暑假暫停通知 Modal 彈窗 🌟 -->
-    <div class="modal fade" id="autoNoticeModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
-                <div class="modal-header border-0 pb-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center px-4 pb-4 pt-0">
-                    <div class="mb-3 text-warning">
-                        <i class="bi bi-exclamation-triangle-fill display-3"></i>
-                    </div>
-                    <h4 class="fw-bold mb-3" style="color: var(--primary-navy);">暑假期間暫停通知</h4>
-                    <div class="p-3 bg-light rounded-3 mb-4">
-                        <p class="mb-1 fw-bold text-danger fs-5">
-                            ☀️ 7 月、8 月週五運動趣暫停舉辦
-                        </p>
-                        <p class="text-muted small mb-0">
-                            暑假期間請報名參加「暑期專區」之營隊活動！
-                        </p>
-                    </div>
-                    <button type="button" class="btn btn-primary rounded-pill px-5 py-2 shadow-sm" data-bs-dismiss="modal">
-                        我知道了
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- 導覽列 -->
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-white">
         <div class="container d-flex align-items-center">
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="sports.html">
                 <img src="images/Green and Brown Minimalist Studio Logo Design Template.png" alt="Logo" width="30" height="30" class="me-2">
                 週五運動趣
             </a>
@@ -294,7 +260,7 @@
         </div>
     </div>
 
-    <!-- 時間軸區塊 -->
+    <!-- 9月份活動時間軸區塊 -->
     <section class="py-5 bg-light">
         <div class="container">
             <div class="row justify-content-center">
@@ -302,23 +268,9 @@
 
                     <div class="timeline-container">
                         
-                        <!-- 5/01 -->
-                        <div class="timeline-item holiday" data-aos="fade-up">
-                            <div class="timeline-date">5/01</div>
-                            <div class="timeline-content">
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-slash-circle me-3 fs-4 text-secondary"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1">國定假日暫停一次</h5>
-                                        <p class="mb-0 small text-muted">好好休息，下週見！</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 5/08 -->
+                        <!-- 9/04 桌球 -->
                         <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">5/08</div>
+                            <div class="timeline-date">9/04</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
@@ -333,13 +285,29 @@
                             </div>
                         </div>
 
-                        <!-- 5/15 -->
+                        <!-- 9/11 腳踏車、夜跑 -->
                         <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">5/15</div>
+                            <div class="timeline-date">9/11</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
-                                        <h5 class="fw-bold mb-2"><i class="bi bi-lightning-charge me-2 text-warning"></i>羽毛球</h5>
+                                        <h5 class="fw-bold mb-2"><i class="bi bi-bicycle me-2 text-success"></i>腳踏車、夜跑</h5>
+                                        <p class="mb-1">晚上 7:00 ～ 9:00</p>
+                                    </div>
+                                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                        <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">教會導航</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9/18 羽球 -->
+                        <div class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-date">9/18</div>
+                            <div class="timeline-content card-hover">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h5 class="fw-bold mb-2"><i class="bi bi-lightning-charge me-2 text-warning"></i>羽球</h5>
                                         <p class="mb-1">晚上 6:00 ～ 8:00</p>
                                         <p class="mb-0 text-muted">內惟國小羽球場</p>
                                     </div>
@@ -350,9 +318,9 @@
                             </div>
                         </div>
 
-                        <!-- 5/22 -->
+                        <!-- 9/25 籃球 -->
                         <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">5/22</div>
+                            <div class="timeline-date">9/25</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
@@ -362,37 +330,6 @@
                                     </div>
                                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                         <a href="https://maps.app.goo.gl/mtcW3xTxF2621QJ99" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 5/29 -->
-                        <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">5/29</div>
-                            <div class="timeline-content card-hover">
-                                <div class="row align-items-center">
-                                    <div class="col-md-8">
-                                        <h5 class="fw-bold mb-2"><i class="bi bi-film me-2 text-danger"></i>看電影</h5>
-                                        <p class="mb-1">晚上 7:00 ～ 9:00</p>
-                                        <p class="mb-0 text-muted">教會七樓</p>
-                                    </div>
-                                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                                        <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 7月與8月暑假提醒卡 -->
-                        <div class="timeline-item holiday" data-aos="fade-up">
-                            <div class="timeline-date">7月-8月</div>
-                            <div class="timeline-content border-warning bg-white">
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-sun-fill me-3 fs-3 text-warning"></i>
-                                    <div>
-                                        <h5 class="fw-bold mb-1 text-dark">暑假期間暫停舉辦</h5>
-                                        <p class="mb-0 small text-muted">7、8 月全月暫停，大家暑期營隊見！9 月份恢復常態運動。</p>
                                     </div>
                                 </div>
                             </div>
@@ -470,7 +407,7 @@
                 <div class="col-lg-7">
                     <div class="d-flex flex-column gap-3 h-100">
                         
-                        <a href="https://line.me/R/ti/p/@356lmxoo" class="contact-box-horizontal" data-aos="fade-right">
+                        <a href="https://line.me/R/ti/p/@356lmxoo" target="_blank" class="contact-box-horizontal" data-aos="fade-right">
                             <div class="contact-icon-circle icon-orange"><i class="bi bi-question-lg"></i></div>
                             <div class="ms-3">
                                 <h5 class="fw-bold mb-1" style="color: var(--primary-navy);">我要問問題</h5>
@@ -497,20 +434,7 @@
                     </div>
                 </div>
 
-                <!-- 右側：QR Code 卡片 -->
-                <div class="col-lg-5" data-aos="fade-left">
-                    <div class="qr-card h-100 d-flex flex-column align-items-center justify-content-center p-4 shadow-sm">
-                        <h5 class="fw-bold mb-3" style="color: var(--primary-navy);">加入 LINE 官方帳號</h5>
-                        <div class="qr-wrapper p-3 bg-white mb-3">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://line.me/R/ti/p/@356lmxoo" alt="QR Code" class="img-fluid" style="width: 160px;">
-                        </div>
-                        <p class="text-muted small mb-0">掃描上方 QR Code 或點擊左側按鈕</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+        
 
     <footer class="py-4 bg-white text-center">
         <p class="text-muted small mb-0">這裡是我們的家丨信仰讓我們發光</p>
@@ -521,12 +445,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-
-        // 🌟 網頁一載入完成就自動跳出通知彈窗 🌟
-        document.addEventListener("DOMContentLoaded", function () {
-            var noticeModal = new bootstrap.Modal(document.getElementById('autoNoticeModal'));
-            noticeModal.show();
-        });
     </script>
 </body>
 

@@ -144,51 +144,66 @@
             transform: scale(1.03);
         }
 
-        /* 橫向聯絡區塊 */
-        .contact-box-horizontal {
-            display: flex;
-            align-items: center;
-            padding: 20px 25px;
-            background: #fff;
-            border-radius: 16px;
-            border: 1px solid #eee;
-            text-decoration: none !important;
-            color: inherit;
-            transition: all 0.4s ease;
-            flex: 1;
+        /* 三欄直式聯絡大卡片樣式 */
+        .quick-contact-section {
+            background-color: #ffffff;
+            border-top: 1px solid #f0f0f0;
         }
 
-        .contact-box-horizontal:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            background-color: #fafafa;
+        .contact-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 45px 25px;
+            text-decoration: none !important;
+            color: #333 !important;
+            background: #fff;
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            text-align: center;
+            border: 1px solid #eee;
+            height: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .contact-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .border-orange:hover { border-color: #d35400; }
+        .border-blue:hover   { border-color: #2980b9; }
+        .border-dark:hover   { border-color: #333333; }
+
+        .contact-box h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .contact-box p {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0;
         }
 
         .contact-icon-circle {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: 0.3s;
         }
 
         .icon-orange { background: #fff5eb; color: #d35400; }
-        .icon-blue { background: #ebf5ff; color: #2980b9; }
-        .icon-dark { background: #f5f5f5; color: #333333; }
-
-        .qr-card {
-            background: #fff;
-            border-radius: 20px;
-            border: 1px solid #f0f0f0;
-        }
-
-        .qr-wrapper {
-            border: 2px dashed var(--accent-gold);
-            border-radius: 12px;
-        }
+        .icon-blue   { background: #ebf5ff; color: #2980b9; }
+        .icon-dark   { background: #f5f5f5; color: #333333; }
 
         @media (max-width: 991px) {
             .timeline-container { padding-left: 0; }
@@ -196,7 +211,6 @@
             .timeline-date { position: relative; left: 40px; text-align: left; margin-bottom: 15px; }
             .timeline-content { margin-left: 40px; }
             .info-bar-large { flex-direction: column; padding: 20px; }
-            .contact-box-horizontal:hover { transform: translateY(-5px); }
         }
     </style>
 </head>
@@ -293,6 +307,7 @@
                                     <div class="col-md-8">
                                         <h5 class="fw-bold mb-2"><i class="bi bi-bicycle me-2 text-success"></i>腳踏車、夜跑</h5>
                                         <p class="mb-1">晚上 7:00 ～ 9:00</p>
+                                        <p class="mb-0 text-muted">愛河畔／集合地點請留意 LINE 公告</p>
                                     </div>
                                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                         <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">教會導航</a>
@@ -318,18 +333,14 @@
                             </div>
                         </div>
 
-                        <!-- 9/25 籃球 -->
+                        <!-- 9/25 連假暫停 -->
                         <div class="timeline-item" data-aos="fade-up">
                             <div class="timeline-date">9/25</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
-                                        <h5 class="fw-bold mb-2"><i class="bi bi-dribbble me-2 text-danger"></i>籃球</h5>
-                                        <p class="mb-1">晚上 7:00 ～ 9:00</p>
-                                        <p class="mb-0 text-muted">三民公園籃球場</p>
-                                    </div>
-                                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                                        <a href="https://maps.app.goo.gl/mtcW3xTxF2621QJ99" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
+                                        <h5 class="fw-bold mb-2"><i class="bi bi-pause-circle me-2 text-danger"></i>連假暫停一次</h5>
+                                        <p class="mb-0 text-muted">適逢連假暫停舉辦一次</p>
                                     </div>
                                 </div>
                             </div>
@@ -398,45 +409,42 @@
         </div>
     </section>
 
-    <!-- 快速聯絡與 QR Code 區塊 -->
-    <section id="contact" class="quick-contact-section py-5 bg-light border-top">
+    <!-- 三欄式聯絡卡片（無 QR Code，標準白底直式卡片） -->
+    <section id="contact" class="quick-contact-section py-5">
         <div class="container">
-            <div class="row g-4 align-items-stretch">
-                
-                <!-- 左側：三個聯絡按鈕 -->
-                <div class="col-lg-7">
-                    <div class="d-flex flex-column gap-3 h-100">
-                        
-                        <a href="https://line.me/R/ti/p/@356lmxoo" target="_blank" class="contact-box-horizontal" data-aos="fade-right">
-                            <div class="contact-icon-circle icon-orange"><i class="bi bi-question-lg"></i></div>
-                            <div class="ms-3">
-                                <h5 class="fw-bold mb-1" style="color: var(--primary-navy);">我要問問題</h5>
-                                <p class="mb-0 text-muted small">對活動有疑問？點擊立即諮詢</p>
-                            </div>
-                        </a>
-
-                        <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="contact-box-horizontal" data-aos="fade-right" data-aos-delay="100">
-                            <div class="contact-icon-circle icon-blue"><i class="bi bi-geo-alt-fill"></i></div>
-                            <div class="ms-3">
-                                <h5 class="fw-bold mb-1" style="color: var(--primary-navy);">我要導航</h5>
-                                <p class="mb-0 text-muted small">活動地點地圖導航</p>
-                            </div>
-                        </a>
-
-                        <a href="tel:3155571" class="contact-box-horizontal" data-aos="fade-right" data-aos-delay="200">
-                            <div class="contact-icon-circle icon-dark"><i class="bi bi-telephone-fill"></i></div>
-                            <div class="ms-3">
-                                <h5 class="fw-bold mb-1" style="color: var(--primary-navy);">我要打電話</h5>
-                                <p class="mb-0 text-muted small">緊急事項，直接撥打專線</p>
-                            </div>
-                        </a>
-                        
-                    </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <a href="https://line.me/R/ti/p/@356lmxoo" target="_blank" class="contact-box border-orange">
+                        <div class="contact-icon-circle icon-orange">
+                            <i class="bi bi-question-lg"></i>
+                        </div>
+                        <h4>我要問問題</h4>
+                        <p>對活動有疑問？點擊立即諮詢</p>
+                    </a>
                 </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="contact-box border-blue">
+                        <div class="contact-icon-circle icon-blue">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h4>我要導航</h4>
+                        <p>活動地點地圖</p>
+                    </a>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="tel:3155571" class="contact-box border-dark">
+                        <div class="contact-icon-circle icon-dark">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h4>我要打電話</h4>
+                        <p>緊急事項，直接撥打專線</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        
-
-    <footer class="py-4 bg-white text-center">
+    <footer class="py-4 bg-white text-center border-top">
         <p class="text-muted small mb-0">這裡是我們的家丨信仰讓我們發光</p>
     </footer>
 

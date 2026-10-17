@@ -77,9 +77,10 @@
 
         .timeline-date {
             position: absolute;
-            left: -100px;
+            right: calc(100% + 20px);
             top: 15px;
-            width: 80px;
+            width: max-content;
+            white-space: nowrap;
             font-weight: 700;
             color: var(--primary-navy);
             font-size: 1.2rem;
@@ -100,30 +101,6 @@
             transform: translateX(10px);
             box-shadow: 0 10px 25px rgba(26, 43, 72, 0.08);
             border-left: 5px solid var(--accent-gold);
-        }
-
-        /* 大氣資訊列 */
-        .info-bar-large {
-            background: #fff;
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(26, 43, 72, 0.08);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            border: 1px solid #f0f0f0;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 10px 20px;
-        }
-
-        .info-item i {
-            font-size: 2rem;
-            color: var(--accent-gold);
         }
 
         /* 照片牆 */
@@ -208,9 +185,8 @@
         @media (max-width: 991px) {
             .timeline-container { padding-left: 0; }
             .timeline-container::before { left: 15px; }
-            .timeline-date { position: relative; left: 40px; text-align: left; margin-bottom: 15px; }
+            .timeline-date { position: relative; left: 40px; right: auto; width: max-content; text-align: left; margin-bottom: 15px; }
             .timeline-content { margin-left: 40px; }
-            .info-bar-large { flex-direction: column; padding: 20px; }
         }
     </style>
 </head>
@@ -229,7 +205,7 @@
                     <i class="bi bi-house-door me-1"></i> 返回主頁
                 </a>
                 <a href="tel:0910833072" class="btn btn-primary rounded-pill px-4 shadow-sm">
-                    立即報名
+                    立即詢問
                 </a>
             </div>
         </div>
@@ -243,37 +219,6 @@
         </div>
     </header>
 
-    <!-- 大氣資訊列 -->
-    <div class="container my-5">
-        <div class="row justify-content-center" data-aos="fade-up">
-            <div class="col-12">
-                <div class="info-bar-large">
-                    <div class="info-item">
-                        <i class="bi bi-calendar3"></i>
-                        <div>
-                            <span class="d-block text-muted small">時間</span>
-                            <strong>每週五晚上</strong>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="bi bi-geo-alt"></i>
-                        <div>
-                            <span class="d-block text-muted small">地點</span>
-                            <strong>每週不同地點（詳見時間表）</strong>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="bi bi-people"></i>
-                        <div>
-                            <span class="d-block text-muted small">對象</span>
-                            <strong>國小 ～ 社青</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- 9月份活動時間軸區塊 -->
     <section class="py-5 bg-light">
         <div class="container">
@@ -284,13 +229,14 @@
                         
                         <!-- 10/02 桌球 -->
                         <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">10/02</div>
+                            <div class="timeline-date">10/02（五）</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <h5 class="fw-bold mb-2"><span class="me-2" aria-hidden="true">🏓</span>桌球</h5>
                                         <p class="mb-1">晚上 7:00 ～ 9:00</p>
-                                        <p class="mb-0 text-muted">教會五樓</p>
+                                        <p class="mb-1">地點：教會五樓</p>
+                                         <p class="mb-0 text-muted">無須報名，直接來就好呦</p>
                                     </div>
                                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                         <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
@@ -307,7 +253,7 @@
                                     <div class="col-md-8">
                                         <h5 class="fw-bold mb-2"><i class="bi bi-bicycle me-2 text-success"></i>腳踏車、夜跑</h5>
                                         <p class="mb-1">晚上 7:00 ～ 9:00</p>
-                                        <p class="mb-0 text-muted">愛河畔／集合地點請留意 LINE 公告</p>
+                                         <p class="mb-0 text-muted">無須報名，直接來就好呦</p>
                                     </div>
                                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                         <a href="https://maps.app.goo.gl/nVMDaMR1PeWoUZRSA" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">教會導航</a>
@@ -317,7 +263,7 @@
                         </div> -->
 
                          <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">10/09</div>
+                            <div class="timeline-date">10/09（五）</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
@@ -330,13 +276,14 @@
 
                         <!-- 10/16 羽球 -->
                         <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">10/16</div>
+                            <div class="timeline-date">10/16（五）</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <h5 class="fw-bold mb-2"><span class="me-2" aria-hidden="true">🏸</span>羽球</h5>
                                         <p class="mb-1">晚上 6:00 ～ 8:00</p>
-                                        <p class="mb-0 text-muted">內惟國小羽球場</p>
+                                        <p class="mb-1">地點：內惟國小羽球場</p>
+                                         <p class="mb-0 text-muted">無須報名，直接來就好呦</p>
                                     </div>
                                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                         <a href="https://maps.app.goo.gl/iifUatNd4EBW1nrF9" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
@@ -347,13 +294,14 @@
 
                          <!-- 10/23 羽球 -->
                         <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">10/23</div>
+                            <div class="timeline-date">10/23（五）</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <h5 class="fw-bold mb-2"><span class="me-2" aria-hidden="true">🏀</span>籃球</h5>
                                         <p class="mb-1">晚上 7:00 ～ 9:00</p>
-                                        <p class="mb-0 text-muted">莊敬迷宮公園籃球場</p>
+                                        <p class="mb-1">地點：莊敬迷宮公園籃球場</p>
+                                        <p class="mb-0 text-muted">無須報名，直接來就好呦</p>
                                     </div>
                                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                         <a href="https://maps.app.goo.gl/qYZnX5Gv2KANx2cv9" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>
@@ -363,13 +311,15 @@
                         </div>
                          <!-- 10/30 羽球 -->
                         <div class="timeline-item" data-aos="fade-up">
-                            <div class="timeline-date">10/30</div>
+                            <div class="timeline-date">10/30（五）</div>
                             <div class="timeline-content card-hover">
                                 <div class="row align-items-center">
                                     <div class="col-md-8">
                                         <h5 class="fw-bold mb-2"><span class="me-2" aria-hidden="true">🏋️</span>健身房</h5>
                                         <p class="mb-1">晚上 7:00 ～ 9:00</p>
-                                        <p class="mb-0 text-muted">苓雅運動中心</p>
+                                        <p class="mb-1">地點：苓雅運動中心</p>
+                                        <p class="mb-1">健身房費用2H/100元</p>
+                                        <p class="mb-0 text-muted">無須報名，直接來就好呦</p>
                                     </div>
                                     <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                         <a href="https://maps.app.goo.gl/8t4VTvApPoPCFcw16" target="_blank" class="btn btn-outline-dark btn-sm rounded-pill">點我導航</a>

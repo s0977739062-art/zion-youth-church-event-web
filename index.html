@@ -228,6 +228,105 @@
             border-radius: 12px;
         }
 
+        .weekly-modal .modal-content {
+            overflow: hidden;
+            border-radius: 1.5rem;
+        }
+
+        .weekly-modal-header {
+            position: relative;
+            padding: 1.5rem 1.5rem 1.25rem;
+            background: linear-gradient(125deg, #fff0d4 0%, #fff8e9 48%, #e6f6ef 100%);
+        }
+
+        .weekly-modal-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.55rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #80622d;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .weekly-modal-title {
+            color: var(--primary-navy);
+        }
+
+        .weekly-modal-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+        }
+
+        .weekly-activity-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid transparent;
+            border-radius: 1rem;
+            color: var(--text-main);
+            text-align: left;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .weekly-activity-link:hover,
+        .weekly-activity-link:focus-visible {
+            color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 0.65rem 1.4rem rgba(26, 43, 72, 0.1);
+        }
+
+        .weekly-activity-reading {
+            border-color: #f0dfbd;
+            background: linear-gradient(110deg, #fff8e9, #fffdf8);
+        }
+
+        .weekly-activity-sports {
+            border-color: #cfe8dc;
+            background: linear-gradient(110deg, #eaf7f0, #f8fcfa);
+        }
+
+        .weekly-activity-icon {
+            display: grid;
+            width: 3rem;
+            height: 3rem;
+            flex: 0 0 3rem;
+            place-items: center;
+            border-radius: 1rem;
+            font-size: 1.35rem;
+        }
+
+        .weekly-activity-reading .weekly-activity-icon {
+            background: #f8e8c9;
+            color: #956c25;
+        }
+
+        .weekly-activity-sports .weekly-activity-icon {
+            background: #d7eee2;
+            color: #26734d;
+        }
+
+        .weekly-activity-arrow {
+            margin-left: auto;
+            color: #728096;
+            font-size: 1.1rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .weekly-activity-link {
+                transition: none;
+            }
+
+            .weekly-activity-link:hover,
+            .weekly-activity-link:focus-visible {
+                transform: none;
+            }
+        }
+
         @media (max-width: 900px) {
             .activity-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -326,6 +425,41 @@
         </div>
     </div>
 
+    <div class="modal fade weekly-modal" id="weeklyActivitiesModal" tabindex="-1" aria-labelledby="weeklyActivitiesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header weekly-modal-header border-0">
+                    <div>
+                        <span class="weekly-modal-eyebrow"><i class="bi bi-stars" aria-hidden="true"></i>一起來吧！</span>
+                        <h2 class="modal-title fs-4 fw-bold weekly-modal-title" id="weeklyActivitiesModalLabel">每週活動，等你一起來！</h2>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body weekly-modal-body">
+                    <p class="text-muted mb-3">讀書、運動、交朋友，選一個喜歡的活動加入我們吧！</p>
+                    <div class="d-grid gap-3">
+                        <a href="reading-club.html" class="weekly-activity-link weekly-activity-reading">
+                            <span class="weekly-activity-icon"><i class="bi bi-book-half" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="d-block fw-bold">週二讀書會</span>
+                                <span class="small text-muted">每週二下午 5:30－9:00</span>
+                            </span>
+                            <i class="bi bi-arrow-right-circle weekly-activity-arrow" aria-hidden="true"></i>
+                        </a>
+                        <a href="sports.html" class="weekly-activity-link weekly-activity-sports">
+                            <span class="weekly-activity-icon"><i class="bi bi-bicycle" aria-hidden="true"></i></span>
+                            <span>
+                                <span class="d-block fw-bold">週五運動趣</span>
+                                <span class="small text-muted">每週五晚上，活動內容與時間請見活動頁</span>
+                            </span>
+                            <i class="bi bi-arrow-right-circle weekly-activity-arrow" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section id="contact" class="quick-contact-section py-5">
         <div class="container">
             <div class="row g-4 align-items-stretch">
@@ -386,6 +520,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('weeklyActivitiesModal')).show();
     </script>
 </body>
 </html>

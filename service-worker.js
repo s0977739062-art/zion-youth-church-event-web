@@ -1,4 +1,4 @@
-const CACHE_NAME = "zion-youth-cache-v1";
+const CACHE_NAME = "zion-youth-cache-v2";
 const APP_SHELL = [
     "./index.html",
     "./kids-art.html",
@@ -9,6 +9,8 @@ const APP_SHELL = [
     "./study-ko.html",
     "./youth-worship.html",
     "./style.css",
+    "./winter-season.css",
+    "./pwa.js",
     "./manifest.json",
     "./images/pwa-icon-192.png",
     "./images/pwa-icon-512.png"

@@ -1,0 +1,122 @@
+:root {
+    --winter-cream: #fffaf3;
+    --winter-paper: #fffdf9;
+    --winter-purple: #7751a6;
+    --winter-purple-deep: #39245f;
+    --winter-lavender: #d7c3ef;
+    --winter-gold: #e6b866;
+}
+
+html.winter-season,
+body.winter-season {
+    --bg-light: var(--winter-cream);
+    --primary-navy: var(--winter-purple-deep);
+    --accent-gold: var(--winter-purple);
+    --text-main: #33294a;
+}
+
+body.winter-season {
+    background:
+        radial-gradient(ellipse at 12% 9%, rgba(231, 211, 248, 0.3), transparent 34rem),
+        radial-gradient(ellipse at 94% 48%, rgba(255, 232, 204, 0.28), transparent 36rem),
+        var(--winter-cream);
+}
+
+body.winter-season .navbar {
+    background: rgba(255, 250, 243, 0.92) !important;
+    border-bottom-color: rgba(119, 81, 166, 0.2);
+}
+
+body.winter-season .navbar-brand,
+body.winter-season .nav-link,
+body.winter-season .info-item strong,
+body.winter-season .weekly-modal-title {
+    color: var(--winter-purple-deep) !important;
+}
+
+body.winter-season .navbar-brand:hover,
+body.winter-season .dropdown-item:hover {
+    color: var(--winter-purple) !important;
+}
+
+body.winter-season .dropdown-menu,
+body.winter-season .activity-card,
+body.winter-season .info-bar-large,
+body.winter-season .contact-box,
+body.winter-season .contact-box-horizontal,
+body.winter-season .qr-card,
+body.winter-season .card {
+    background-color: rgba(255, 253, 249, 0.94);
+    border-color: rgba(119, 81, 166, 0.16);
+}
+
+body.winter-season .activity-card:hover,
+body.winter-season .contact-box:hover,
+body.winter-season .contact-box-horizontal:hover {
+    border-color: var(--winter-purple);
+    box-shadow: 0 15px 35px rgba(67, 43, 98, 0.12);
+}
+
+body.winter-season .hero {
+    position: relative;
+    isolation: isolate;
+    border-bottom-color: var(--winter-lavender);
+}
+
+body.winter-season .hero::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(49, 31, 78, 0.58), rgba(108, 72, 143, 0.28));
+    content: "";
+}
+
+body.winter-season .hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+body.winter-season footer,
+body.winter-season .quick-contact-section {
+    background-color: rgba(255, 253, 249, 0.9);
+    border-color: rgba(119, 81, 166, 0.16);
+}
+
+body.winter-season .weekly-modal-header {
+    background: linear-gradient(125deg, #f3e8fb 0%, #fff8f1 55%, #ece5fa 100%);
+}
+
+.winter-snow {
+    position: fixed;
+    z-index: 1040;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.winter-snowflake {
+    position: absolute;
+    top: -8vh;
+    color: #9474bb;
+    opacity: 0.48;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+    animation: winter-snow-fall linear infinite;
+    will-change: transform;
+}
+
+.winter-snowflake:nth-child(3n) {
+    color: #fff;
+    opacity: 0.78;
+}
+
+@keyframes winter-snow-fall {
+    to {
+        transform: translate3d(var(--snow-drift), 112vh, 0) rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .winter-snow {
+        display: none;
+    }
+}
